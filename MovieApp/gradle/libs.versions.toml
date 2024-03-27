@@ -1,0 +1,48 @@
+[versions]
+gradlew = "8.6"
+java = "21"
+kotlin = "1.9.22"
+
+springBoot = "3.2.3"
+jackson = "2.16.1"
+micrometer = "1.12.3"
+
+lombok = "1.18.32"
+
+slf4j = "2.0.12"
+logback = "7.4"
+
+jupiter = "5.10.2"
+cucumber = "7.15.0"
+wiremock = "3.3.1"
+
+[libraries]
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logbackEncoder = { module = "net.logstash.logback:logstash-logback-encoder", version.ref = "logback" }
+
+springBootWeb = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springBoot" }
+springBootActuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "springBoot" }
+springBootSecurity = { module = "org.springframework.boot:spring-boot-starter-security", version.ref = "springBoot" }
+
+micrometerPrometheus = { module = "io.micrometer:micrometer-registry-prometheus", version.ref = "micrometer" }
+
+springBootTest = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
+junit-vintageEngine = { module = "org.junit.vintage:junit-vintage-engine", version.ref = "jupiter" }
+cucumber-junit = { module = "io.cucumber:cucumber-junit", version.ref = "cucumber" }
+cucumber-java = { module = "io.cucumber:cucumber-java", version.ref = "cucumber" }
+cucumber-spring = { module = "io.cucumber:cucumber-spring", version.ref = "cucumber" }
+
+wiremock = { module = "org.wiremock:wiremock-standalone", version.ref = "wiremock" }
+
+kotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+[bundles]
+springBoot = ["springBootWeb", "springBootActuator", "springBootSecurity"]
+logging = ["slf4j", "logbackEncoder"]
+
+functionalTest = ["cucumber-junit", "cucumber-java", "cucumber-spring", "wiremock", "springBootTest"]
+
+[plugins]
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
+taskTree = { id = "com.dorongold.task-tree", version = "2.1.1" }

@@ -1,0 +1,22 @@
+spring:
+  main:
+    banner-mode: off
+  lifecycle:
+    timeout-per-shutdown-phase: 1s
+  output:
+    ansi:
+      enabled: always
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+management:
+  endpoint:
+    health.probes.enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+tmdb:
+  url: https://api.themoviedb.org/3
+  access-token: "<placeholder>"
