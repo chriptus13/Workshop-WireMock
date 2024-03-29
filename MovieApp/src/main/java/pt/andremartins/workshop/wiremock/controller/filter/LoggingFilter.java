@@ -28,8 +28,10 @@ public class LoggingFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
         long responseTime = System.currentTimeMillis() - start;
         HttpStatusCode status = HttpStatusCode.valueOf(response.getStatus());
-        if (status.isError()) {
+        if (status.is5xxServerError()) {
             log.error("Server response {} {} - {} ({} ms)", method, path, status, responseTime);
+        } else if (status.is4xxClientError()) {
+            log.warn("Server response {} {} - {} ({} ms)", method, path, status, responseTime);
         } else {
             log.info("Server response {} {} - {} ({} ms)", method, path, status, responseTime);
         }

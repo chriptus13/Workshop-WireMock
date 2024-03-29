@@ -17,7 +17,11 @@ public class MovieController {
 
     @GetMapping("/movies/{id}")
     public ResponseEntity<MovieDetail> getMovie(@PathVariable String id) {
-        return ResponseEntity.ok(movieService.getMovieDetail(id));
+        MovieDetail movieDetail = movieService.getMovieDetail(id);
+        if (movieDetail == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(movieDetail);
     }
 
     @GetMapping("/movies")

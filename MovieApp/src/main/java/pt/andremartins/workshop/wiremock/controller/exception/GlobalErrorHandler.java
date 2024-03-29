@@ -21,6 +21,7 @@ public class GlobalErrorHandler {
             sb.append(msg).append('\n');
         }
         sb.append(stackTraceToString(ex));
+        log.error("Error {}", msg, ex);
         return ResponseEntity.internalServerError().body(
                 new Problem(ex.getClass().getSimpleName(), sb.toString())
         );

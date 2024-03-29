@@ -28,6 +28,9 @@ public class MovieService {
 
     public MovieDetail getMovieDetail(String id) {
         MovieDto movieDto = tmdbClient.getMovieById(id);
+        if (movieDto == null) {
+            return null;
+        }
         MovieCreditsDto creditsDto = tmdbClient.getMovieCredits(id);
         return new MovieDetail(
                 movieDto.id(),
