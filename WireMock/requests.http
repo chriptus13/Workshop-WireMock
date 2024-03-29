@@ -1,0 +1,80 @@
+### Hello World
+GET http://localhost:8090/hello/world
+
+### Hello World - JSON
+GET http://localhost:8090/hello/world/json
+
+### Image example
+GET http://localhost:8090/test/img
+
+### Create Stub
+POST http://localhost:8090/__admin/mappings
+Content-Type: application/json
+
+{
+    "request": {
+        "method": "POST",
+        "urlPathTemplate": "/some/service/other1/{id}"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {
+            "id": "{{ request.path.id}}",
+            "name": "{{ random 'Name.name' }}"
+        }
+    },
+    "metadata": {
+        "name": "some-service-stub"
+    }
+}
+
+### Post example
+POST http://localhost:8090/some/service/other1/12345
+Content-Type: application/json
+
+{
+    "name": "André",
+    "id": 123
+}
+
+### Get stubs/mappings
+GET http://localhost:8090/__admin/mappings
+
+### Find stub by metadata
+POST http://localhost:8090/__admin/mappings/find-by-metadata
+Content-Type: application/json
+
+{
+    "matchesJsonPath": {
+        "expression": "name",
+        "equalTo": "some-service-stub"
+    }
+}
+
+### Get stub
+GET http://localhost:8090/__admin/mappings/2c5ef3c4-077d-4340-80c2-8d6b8fe28277
+
+### Count requests matching
+POST http://localhost:8090/__admin/requests/count
+Content-Type: application/json
+
+{
+    "method": "POST",
+    "urlPath": "/some/service",
+    "headers": {
+        "Content-Type": {
+            "equalTo": "application/json"
+        }
+    },
+    "bodyPatterns": [
+        {
+            "matchesJsonPath": {
+                "expression": "name",
+                "equalTo": "André"
+            }
+        }
+    ]
+}

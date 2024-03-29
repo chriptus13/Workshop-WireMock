@@ -1,0 +1,17 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPath": "/hello/world"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "text/plain"
+        },
+        "body": "Hello World!"
+    },
+    "priority": 20,
+    "metadata": {
+        "name": "my-first-stub"
+    }
+}

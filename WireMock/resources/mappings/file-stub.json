@@ -1,0 +1,19 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPath": "/test/img"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "image/png"
+        },
+        "bodyFileName": "wiremock.png",
+        "transformerParameters": {
+            "disableBodyFileTemplating": true
+        }
+    },
+    "metadata": {
+        "name": "file-stub"
+    }
+}

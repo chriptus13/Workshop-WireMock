@@ -1,0 +1,20 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPath": "/hello/world/json"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {
+            "message": "Hello World!",
+            "time": "{{ now }}"
+        }
+    },
+    "priority": 20,
+    "metadata": {
+        "name": "json-body-stub"
+    }
+}
