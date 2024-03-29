@@ -23,15 +23,15 @@ public class LoggingFilter extends OncePerRequestFilter {
     ) throws ServletException, IOException {
         String method = request.getMethod();
         String path = request.getRequestURI();
-        log.info("Received {} {}", method, path);
+        log.info("Server received {} {}", method, path);
         long start = System.currentTimeMillis();
         filterChain.doFilter(request, response);
         long responseTime = System.currentTimeMillis() - start;
         HttpStatusCode status = HttpStatusCode.valueOf(response.getStatus());
         if (status.isError()) {
-            log.error("Response {} {} - {} ({} ms)", method, path, status, responseTime);
+            log.error("Server response {} {} - {} ({} ms)", method, path, status, responseTime);
         } else {
-            log.info("Response {} {} - {} ({} ms)", method, path, status, responseTime);
+            log.info("Server response {} {} - {} ({} ms)", method, path, status, responseTime);
         }
     }
 }
