@@ -4,7 +4,7 @@ java = "21"
 kotlin = "1.9.22"
 
 springBoot = "3.2.3"
-jackson = "2.16.1"
+jackson = "2.17.0"
 micrometer = "1.12.3"
 
 lombok = "1.18.32"
@@ -20,6 +20,8 @@ wiremock = "3.3.1"
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 logbackEncoder = { module = "net.logstash.logback:logstash-logback-encoder", version.ref = "logback" }
+
+jackson-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
 
 springBootWeb = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springBoot" }
 springBootActuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "springBoot" }
@@ -38,7 +40,7 @@ wiremock = { module = "org.wiremock:wiremock-standalone", version.ref = "wiremoc
 kotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [bundles]
-springBoot = ["springBootWeb", "springBootActuator", "springBootSecurity"]
+springBoot = ["springBootWeb", "springBootActuator", "springBootSecurity", "jackson-jsr310"]
 logging = ["slf4j", "logbackEncoder"]
 
 functionalTest = ["cucumber-junit", "cucumber-java", "cucumber-spring", "wiremock", "springBootTest"]

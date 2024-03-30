@@ -26,7 +26,8 @@ testing {
     suites {
         getByName<JvmTestSuite>("test") {
             dependencies {
-
+                compileOnly(libs.lombok)
+                annotationProcessor(libs.lombok)
             }
             targets {
                 all {
@@ -54,6 +55,7 @@ testing {
             targets {
                 all {
                     testTask.configure {
+                        jvmArgs = listOf("-XX:+EnableDynamicAgentLoading")
                         outputs.upToDateWhen { false }
                         testLogging {
                             exceptionFormat = FULL
@@ -73,6 +75,8 @@ fun JvmTestSuite.extendTestConfigurations(): JvmTestSuite = apply {
         .extendsFrom(configurations.testImplementation.get())
     configurations["${name}CompileOnly"]
         .extendsFrom(configurations.testCompileOnly.get())
+    configurations["${name}AnnotationProcessor"]
+        .extendsFrom(configurations.testAnnotationProcessor.get())
     configurations["${name}RuntimeOnly"]
         .extendsFrom(configurations.testRuntimeOnly.get())
 }

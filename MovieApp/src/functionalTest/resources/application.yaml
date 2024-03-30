@@ -1,0 +1,12 @@
+spring:
+  main:
+    banner-mode: off
+  output:
+    ansi:
+      enabled: always
+
+service:
+  address: http://localhost:8080
+
+wiremock:
+  address: http://localhost:8090
