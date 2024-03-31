@@ -1,0 +1,21 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPath": "/3/search/movie",
+        "queryParameters": {
+            "query": {
+                "matches": ".*"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {}
+    },
+    "metadata": {
+        "name": "movie-search"
+    }
+}

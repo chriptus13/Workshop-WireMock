@@ -1,0 +1,16 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPathPattern": "/3/movie/\\w+/credits"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {}
+    },
+    "metadata": {
+        "name": "movie-cast"
+    }
+}
