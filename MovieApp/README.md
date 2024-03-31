@@ -12,6 +12,8 @@ When you have your access token simply run the following
 TMDB_ACCESS_TOKEN=<your-token> ./gradlew bootRun
 ```
 
+* Movie application will be available at `localhost:8080`
+
 ### Mocked environment
 
 In case you want to run the application pointing to WireMock service instead you need to run WireMock via [docker compose file](../compose.yaml) and then use the `mock` profile when running the application.
