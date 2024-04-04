@@ -8,7 +8,16 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "jsonBody": {}
+        "jsonBody": {
+          "id": "1234",
+          "cast": [
+            {
+              "id": "5678",
+              "name": "André Martins",
+              "character": "André"
+            }
+          ]
+        }
     },
     "metadata": {
         "name": "movie-cast"

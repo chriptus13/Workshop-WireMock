@@ -13,7 +13,27 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "jsonBody": {}
+        "jsonBody": {
+          "page": 1,
+          "total_results": 3,
+          "results": [
+            {
+              "id": "118340",
+              "original_title": "Guardians of the Galaxy",
+              "release_date": "2014-07-30"
+            },
+            {
+              "id": "283995",
+              "original_title": "Guardians of the Galaxy Vol. 2",
+              "release_date": "2017-04-19"
+            },
+            {
+              "id": "447365",
+              "original_title": "Guardians of the Galaxy Vol. 3",
+              "release_date": "2023-05-03"
+            }
+          ]
+        }
     },
     "metadata": {
         "name": "movie-search"
